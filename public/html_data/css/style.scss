@@ -129,14 +129,12 @@ nav{
 }
 
 #transfers{
-  height: calc(100vh - 9rem);
   thead{
     display: none;
     overflow: hidden;
   }
 
   & tbody{
-    max-height: 80vh;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -151,12 +149,8 @@ nav{
 
 //Transfermarket
 #transfers_wrapper{
-  position: relative;
   & .table-footer{
-    position: absolute;
     background-color: #fff;
-    bottom: 0;
-    z-index: 5;
     width: 100%;
   }
   display: flex;

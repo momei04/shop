@@ -13,7 +13,7 @@ let result;
 let playerlist;
 
 //HTML Elements
-let transfermarketContainer = document.getElementById("transfer-container");
+let transfermarketContainer = document.getElementById("transfers_wrapper");
 
 const response = async function(){
     try {
