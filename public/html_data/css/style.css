@@ -1,3 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
 
+a {
+  font-weight: 200;
+}
+
+p {
+  font-weight: 200;
+  max-width: 650px;
+}
+
+body {
+  display: flex;
+  gap: 1rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: #222;
+  width: max-content;
+}
+nav .logo-container {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  height: min-content;
+  background-size: cover;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3c/Celtic_Park3.jpg");
+  background-color: #333333;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav .logo-container .layer {
+  background-color: rgba(0, 0, 0, 0.89);
+  opacity: 0.6;
+  z-index: 2;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+nav .logo-container .logo {
+  height: 50px;
+  z-index: 4;
+  aspect-ratio: 1;
+  align-self: center;
+}
+nav .container {
+  box-sizing: border-box;
+  padding: 1rem 2rem;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #333;
+}
+nav .container a {
+  color: #f3f3f3;
+}
+nav ul {
+  display: flex;
+  flex-direction: column;
+}
+nav ul li {
+  list-style: none;
+  width: 25vw;
+  padding: 1rem 2rem;
+  transition: 0.4s;
+}
+nav ul li:hover {
+  background-color: #333;
+}
+nav ul li a {
+  color: #f3f3f3;
+  text-decoration: none;
+}
+
+.main-content {
+  width: calc(75% - 3rem);
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  padding: 2rem 2rem 2rem 0;
+}
+.main-content .match-day {
+  height: calc(100vh - 4rem);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(2, 50%);
+  grid-template-areas: "main p-1" "main p-2";
+}
+.main-content .match-day .panel {
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  background-color: #eaeaea;
+  border-radius: 0.5rem;
+}
+.main-content .match-day .panel.panel-main {
+  grid-area: main;
+}
+.main-content .match-day .panel.panel-1 {
+  grid-area: p-1;
+}
+.main-content .match-day .panel.panel-2 {
+  grid-area: p-2;
+}
+
+#transfers {
+  height: calc(100vh - 9rem);
+}
+#transfers thead {
+  display: none;
+  overflow: hidden;
+}
+#transfers tbody {
+  max-height: 80vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#transfers_wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+  max-height: 80vh;
+  overflow: scroll;
+}
+#transfers_wrapper .table-footer {
+  position: absolute;
+  background-color: #fff;
+  bottom: 0;
+  z-index: 5;
+  width: 100%;
+}
+#transfers_wrapper .player_panel {
+  display: flex;
+  box-sizing: border-box;
+  padding-right: 1rem;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+#transfers_wrapper .player_panel .container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 1rem;
+}
+#transfers_wrapper .player_panel .container .img-container {
+  height: 100%;
+  position: relative;
+  width: 80px;
+  aspect-ratio: 1;
+}
+#transfers_wrapper .player_panel .container .img-container img {
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+#transfers_wrapper .player_panel .container .player-information {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+#transfers_wrapper .player_panel .container .player-information .player-title {
+  color: #333333;
+}
+#transfers_wrapper .player_panel .container .player-information .player-club {
+  opacity: 0.5;
+}
 
 /*# sourceMappingURL=style.css.map */
