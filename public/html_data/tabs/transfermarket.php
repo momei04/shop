@@ -41,6 +41,7 @@ include("../includes/nav/navigation.php");
 <script src="database/transfermarket.js"></script>
 <script>
     let table = new DataTable('#transfers', {
+        "lengthChange": false,
         "pageLength": 15,
         dom: "<'row'<'small-6 columns'l><'small-6 columns'f>r>"+
             "t"+
