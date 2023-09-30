@@ -13,7 +13,7 @@ services:
     volumes:
       - ./:/var/www/html
       - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
-  mysql:
+  db:
     image: mysql:latest
     ports:
       - "3306:3306"

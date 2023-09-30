@@ -18,9 +18,7 @@
 </head>
 <body>
 <?php
-
-
-include("../includes/nav/navigation.php");
+    include("../includes/nav/navigation.php");
 ?>
 
 
@@ -28,21 +26,47 @@ include("../includes/nav/navigation.php");
     <h1>Transfermarkt</h1>
     <table id="transfers" >
         <thead>
-        <tr>
-            <th>player info</th>
-        </tr>
+            <th>Name</th>
+            <th>Club</th>
+            <th>Goals</th>
         </thead>
         <tbody id="transfer-container">
+        <?php
+            $username="webapp";
+            $password="root";
+            $servername = "db";
+            $dbname="webapp";
+            $charset= "utf8mb4";
+            $dsn = "mysql:host=".$servername.";dbname=".$dbname.";charset=".$charset;
+
+            try{
+                $db = new PDO($dsn,$username,$password);
+            }catch(PDOException $err){
+                echo "Connection Problems: " .$err->getMessage();
+                exit();
+            }
+
+            $querry = $db->query("SELECT * FROM player");
+            $players = $querry->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($players as $player) {
+                echo("<tr>
+                        <td>".$player['Player'] . "</td>
+                        <td>".$player['Team'] . "</td>
+                        <td>".$player['Gls'] . "</td>
+                    </tr>");
+            }
+
+        ?>
 
         </tbody>
     </table>
 </div>
 
-<script src="database/transfermarket.js"></script>
+<script src="database/transfermarketTTTTTTTTTTT.js"></script>
 <script>
     let table = new DataTable('#transfers', {
         "lengthChange": false,
-        "pageLength": 15,
+        "pageLength": 12,
         dom: "<'row'<'small-6 columns'l><'small-6 columns'f>r>"+
             "t"+
             "<'row table-footer'<'small-6 columns'i><'small-6 columns'p>>",

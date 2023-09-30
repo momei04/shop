@@ -116,15 +116,11 @@ nav ul li a {
   grid-area: p-2;
 }
 
-#transfers thead {
-  display: none;
-  overflow: hidden;
-}
-#transfers tbody {
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+#transfers {
+  /*thead{
+    display: none;
+    overflow: hidden;
+  }*/
 }
 
 #transfers_wrapper {
