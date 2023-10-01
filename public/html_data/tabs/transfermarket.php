@@ -22,13 +22,18 @@
 ?>
 
 
+
 <div class="main-content">
     <h1>Transfermarkt</h1>
+
+
     <table id="transfers" >
         <thead>
-            <th>Name</th>
-            <th>Club</th>
-            <th>Goals</th>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Nummer</th>
+            <th>Marktwert</th>
+            <th>Verein</th>
         </thead>
         <tbody id="transfer-container">
         <?php
@@ -50,19 +55,43 @@
             $players = $querry->fetchAll(PDO::FETCH_ASSOC);
             foreach ($players as $player) {
                 echo("<tr>
-                        <td>".$player['Player'] . "</td>
-                        <td>".$player['Team'] . "</td>
-                        <td>".$player['Gls'] . "</td>
+                        <td>".$player['vorname'] . "</td>
+                        <td>".$player['nachname'] . "</td>
+                        <td>".$player['nummer'] . "</td>
+                        <td>".$player['marktwert'] . "</td>
+                        <td>".$player['club'] . "</td>
                     </tr>");
             }
 
+            //Inserting stuff into the database
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $insert_player_vorname = $_POST['vorname'];
+            $insert_player_nachname = $_POST['nachname'];
+            $insert_player_number = $_POST['number'];
+            $insert_player_club = $_POST['club'];
+            $insert_player_marktwert = $_POST['marktwert'];
+
+            $insert_querry =$db->prepare("INSERT INTO player (id, vorname, nachname, nummer, club, marktwert)
+VALUES (null, :vorname_insert, :nachname_insert, :nummer_insert, :club_insert, :marktwert_insert)");
+            $insert_querry->execute(
+                    ['vorname_insert'=> $insert_player_vorname,
+                    'nachname_insert'=> $insert_player_nachname,
+                    'nummer_insert'=> $insert_player_number,
+                    'club_insert'=> $insert_player_club,
+                    'marktwert_insert'=> $insert_player_marktwert]
+            );
+        }
+
+        $db = null;
         ?>
 
         </tbody>
     </table>
+
+
 </div>
 
-<script src="database/transfermarketTTTTTTTTTTT.js"></script>
+
 <script>
     let table = new DataTable('#transfers', {
         "lengthChange": false,

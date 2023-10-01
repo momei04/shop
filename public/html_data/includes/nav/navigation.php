@@ -20,6 +20,7 @@
           <li><a href="/html_data/tabs/transfermarket.php">Transfers</a></li>
           <li><a href="/html_data/tabs/matches.php">Matches</a></li>
           <li><a href="/html_data/tabs/line_up.php">Line up</a></li>
+          <li><a href="/html_data/tabs/insert-player.php">create a Player</a></li>
         </ul>
       </div>
       <div class="container">
